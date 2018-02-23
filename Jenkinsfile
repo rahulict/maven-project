@@ -15,8 +15,8 @@ pipeline {
             agent { label 'master' }
             steps {
 		step([$class: 'CopyArtifact',
-		filter: '**/target/*.war', fingerprintArtifacts: true,
-		flatten: true, projectName: 'DeployTestApp',
+		filter: '**/target/*.war',
+		projectName: 'DeployTestApp',
 		selector: [$class: 'WorkspaceSelector'],
 		target: '/opt/test/wars/'])
             }
