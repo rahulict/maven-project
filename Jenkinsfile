@@ -17,7 +17,8 @@ pipeline {
 		step([$class: 'CopyArtifact',
 		filter: '**/target/*.war', fingerprintArtifacts: true,
 		flatten: true, projectName: 'DeployTestApp',
-		selector: [$class: 'WorkspaceSelector'], target: '/opt/test/wars/'])
+		selector: [$class: 'WorkspaceSelector'],
+		target: '/opt/test/wars/'])
             }
             post {
                 success {
