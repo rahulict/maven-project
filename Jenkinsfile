@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy artifect') {
             agent { label 'master' }
             steps {
-                sh 'cp **/target/webapp.war /opt/test/wars/'
+                sh 'cp **/target/*.war /opt/test/wars/'
             }
             post {
                 success {
