@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'maven:3-alpine' }
+    agent { label 'master' }
     stages {
         stage('Build application') {
             steps {
@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy artifect') {
             agent { label 'master' }
             steps {
-                sh 'cp **/target/*.war /opt/test/wars/'
+                sh 'cp **/target/webapp.war /opt/test/wars/'
             }
             post {
                 success {
