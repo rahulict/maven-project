@@ -14,7 +14,10 @@ pipeline {
         stage('Deploy artifect') {
             agent { label 'master' }
             steps {
-                sh "cp **/target/*.war /opt/test/wars/"
+		step([$class: 'CopyArtifact',
+		filter: '**/target/*.war', fingerprintArtifacts: true,
+		flatten: true, projectName: 'DeployTestApp',
+		selector: [$class: 'WorkspaceSelector'], target: '/opt/test/wars/'])
             }
             post {
                 success {
