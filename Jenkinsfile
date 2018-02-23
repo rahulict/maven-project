@@ -14,11 +14,11 @@ pipeline {
         stage('Deploy artifect') {
             agent { label 'master' }
             steps {
-                sh 'cp **/target/*.war /opt/test/wars/'
+                sh "cp **/target/*.war /opt/test/wars/"
             }
             post {
                 success {
-                    sh 'ansible-playbook /home/ec2-user/ansible/deploy_app.yml'
+                    sh "ansible-playbook /home/ec2-user/ansible/deploy_app.yml"
                 }
             }
         }
