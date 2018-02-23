@@ -24,7 +24,7 @@ pipeline {
             }
             post {
                 success {
-                    sh "ansible-playbook /home/ec2-user/ansible/deploy_app.yml"
+                    sh "ansible-playbook -i /home/ec2-user/ansible/inventory/ec2.py /home/ec2-user/ansible/deploy_app.yml"
                 }
             }
         }
