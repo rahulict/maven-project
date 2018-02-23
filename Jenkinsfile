@@ -1,8 +1,8 @@
 pipeline {
     agent none
     stages {
-    	agent { docker 'maven:3-alpine' }
         stage('Build application') {
+    	    agent { docker 'maven:3-alpine' }
             steps {
                 sh 'mvn clean package'
             }
