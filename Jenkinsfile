@@ -16,8 +16,9 @@ pipeline {
             steps {
 		step([$class: 'CopyArtifact',
 		filter: '**/target/*.war',
+		flatten: true,
 		projectName: 'DeployTestApp',
-		selector: [$class: 'WorkspaceSelector'],
+		selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}'], 
 		target: '/opt/test/wars/'])
             }
             post {
