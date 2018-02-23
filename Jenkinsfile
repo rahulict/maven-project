@@ -1,6 +1,7 @@
 pipeline {
-    agent { docker 'maven:3-alpine' }
+    agent none
     stages {
+    	agent { docker 'maven:3-alpine' }
         stage('Build application') {
             steps {
                 sh 'mvn clean package'
@@ -15,7 +16,7 @@ pipeline {
             agent { label 'master' }
             steps {
 		step([$class: 'CopyArtifact',
-		filter: '**/target/*.war',
+		fingerprintArtifacts: true, filter: '**/target/*.war',
 		flatten: true,
 		projectName: 'DeployTestApp',
 		selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}'], 
