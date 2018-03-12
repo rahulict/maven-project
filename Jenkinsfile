@@ -18,7 +18,6 @@ pipeline {
 		step([$class: 'CopyArtifact',
 		fingerprintArtifacts: true, filter: '**/target/*.war',
 		flatten: true,
-		projectName: 'DeployTestApp',
 		selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}'], 
 		target: '/opt/test/wars/'])
             }
