@@ -8,7 +8,7 @@ pipeline {
             post {
                 success {
     			def mailRecipients = "rahul.kumar@renovite.com"
-    			def jobName = currentBuild.fullDisplayName
+    			def jobName = currentBuild.fullDisplayName,
 
         		mimeType: 'text/html',
         		subject: "[Jenkins] ${jobName}",
