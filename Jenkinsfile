@@ -1,30 +1,20 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build application') {
-    	    agent { docker 'maven:3-alpine' }
             steps {
                 sh 'mvn clean package'
             }
             post {
                 success {
-                    archiveArtifacts artifacts: '**/target/*.war'
-                }
-            }
-        }
-        stage('Deploy artifect') {
-            agent { label 'master' }
-            steps {
-		step([$class: 'CopyArtifact',
-		fingerprintArtifacts: true, filter: '**/target/*.war',
-		flatten: true,
-		projectName: '${JOB_NAME}',
-		selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}'], 
-		target: '/opt/test/wars/'])
-            }
-            post {
-                success {
-			ansiblePlaybook(playbook: '/home/ec2-user/ansible/local_deploy_app.yml')
+    			def mailRecipients = "rahul.kumar@renovite.com"
+    			def jobName = currentBuild.fullDisplayName
+
+        		mimeType: 'text/html',
+        		subject: "[Jenkins] ${jobName}",
+        		to: "${mailRecipients}",
+        		replyTo: "rahul.kumar@renovite.com",
+        		recipientProviders: [[$class: 'CulpritsRecipientProvider']]
                 }
             }
         }
