@@ -7,7 +7,7 @@ pipeline {
             }
             post {
                 success {
-    			def mailRecipients = "rahul.kumar@renovite.com"
+    			def mailRecipients = "rahul.kumar@renovite.com",
     			def jobName = currentBuild.fullDisplayName,
 
         		mimeType: 'text/html',
