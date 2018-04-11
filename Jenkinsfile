@@ -14,7 +14,8 @@ pipeline {
 			<h2 style="color: #2e6c80;">Dev-OPS Team</h2>
 			<p><strong>&nbsp;</strong></p>''', 
 			mimeType: 'text/html',
-			replyTo: 'rahul.kumar808@gmail.com', subject: '$DEFAULT_SUBJECT', to: 'rahul.kumar808@gmail.com'
+			postsendScript: '$DEFAULT_POSTSEND_SCRIPT', presendScript: '$DEFAULT_PRESEND_SCRIPT',
+			replyTo: 'rahul.kumar808@gmail.com', subject: '$DEFAULT_SUBJECT', to: 'rahul.kumar@renovite.com'
                 }
             }
         }
