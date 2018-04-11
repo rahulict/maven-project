@@ -13,7 +13,7 @@ pipeline {
 			<h2 style="color: #2e6c80;">Regards,</h2>
 			<h2 style="color: #2e6c80;">Dev-OPS Team</h2>
 			<p><strong>&nbsp;</strong></p>''', 
-			mimeType: 'HTML (text/html)',
+			mimeType: 'text/html',
 			replyTo: 'rahul.kumar808@gmail.com', subject: '$DEFAULT_SUBJECT', to: 'rahul.kumar808@gmail.com'
                 }
             }
