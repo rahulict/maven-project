@@ -7,8 +7,7 @@ pipeline {
             }
             post {
                 success {
-			emailext body: '', recipientProviders: [requestor()], 
-			replyTo: 'Dev-OPS@doNotReply', subject: '$DEFAULT_SUBJECT', to: 'rahul.kumar@renovite.com'
+			emailext body: 'This is a test mail.', replyTo: 'rahul.kumar808@gmail.com', subject: '$DEFAULT_SUBJECT', to: 'rahul.kumar@renovite.com'
                 }
             }
         }
