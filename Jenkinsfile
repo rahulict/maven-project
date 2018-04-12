@@ -25,9 +25,6 @@ pipeline {
 				ok 'Press here!!!'
 				submitter 'sumit,vinay,rahul'
 				submitterParameter 'QaApprover'
-				parameters {
-					choice choices: ['Approve', 'Decline'], description: '', name: 'Approve_Build'
-				}
 			}
             		steps {
                 		echo "Hello, ${QaApprover}, you ${Approve_Build} this build."
