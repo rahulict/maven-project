@@ -23,7 +23,7 @@ pipeline {
         		input {
 				message 'Do you want to promote this build to QA?'
 				ok 'Press here!!!'
-				submitter 'sumit,vinay,rahul'
+				submitter 'sumit,vinay,rahul,apiadmin'
 				submitterParameter 'QaApprover'
 			}
             		steps {
