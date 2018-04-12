@@ -27,7 +27,7 @@ pipeline {
 				submitterParameter 'QaApprover'
 			}
             		steps {
-                		echo "Hello, ${QaApprover}, you ${Approve_Build} this build."
+                		echo "Hello, ${QaApprover}, you approved this build."
             		}
         	}
     	}
